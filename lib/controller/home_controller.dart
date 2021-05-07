@@ -1,8 +1,10 @@
-import 'package:desafio_supera/repository/home/home_repository.dart';
+import 'package:desafio_supera/repository/home_repository.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController with StateMixin {
-  final repository = HomeRepository();
+  final HomeRepository _repository;
+
+  HomeController(this._repository);
 
   @override
   void onInit() {
@@ -13,7 +15,7 @@ class HomeController extends GetxController with StateMixin {
   Future<void> findProducts() async {
     change([], status: RxStatus.loading());
     try {
-      final data = await repository.getProducts();
+      final data = await _repository.getProducts();
       change(data, status: RxStatus.success());
     } catch (e) {
       change([], status: RxStatus.error('Erro ao buscar Usuários'));
