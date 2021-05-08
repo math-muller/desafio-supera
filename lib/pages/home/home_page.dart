@@ -1,5 +1,6 @@
 import 'package:desafio_supera/pages/home/components/product_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
 
 import 'package:desafio_supera/controller/home_controller.dart';
@@ -10,6 +11,19 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.orangeAccent,
+        splashColor: Colors.orange,
+        child: Image(
+          height: 25,
+          width: 25,
+          image: Svg(
+            'assets/images/cart-icon.svg',
+            color: Colors.white,
+          ),
+        ),
+      ),
       appBar: AppBarWidget(),
       body: controller.obx(
         (state) {
