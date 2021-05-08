@@ -1,3 +1,4 @@
+import 'package:desafio_supera/bindings/home_binding.dart';
 import 'package:desafio_supera/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/home',
           page: () => HomePage(),
+          binding: HomeBinding(),
           transition: Transition.fade,
           transitionDuration: Duration(milliseconds: 300),
         ),
