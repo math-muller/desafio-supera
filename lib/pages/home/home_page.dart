@@ -1,3 +1,4 @@
+import 'package:desafio_supera/pages/home/components/filter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,20 +18,25 @@ class HomePage extends GetView<HomeController> {
       appBar: AppBarWidget(),
       body: controller.obx(
         (state) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 40),
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                childAspectRatio: 2.6,
+          return Stack(
+            children: [
+              FilterWidget(state: state),
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 4.0,
+                    childAspectRatio: 2.6,
+                  ),
+                  itemCount: state.length,
+                  itemBuilder: (_, index) {
+                    final ProductsModel product = state[index];
+                    return ProductCardWidget(product: product);
+                  },
+                ),
               ),
-              itemCount: state.length,
-              itemBuilder: (_, index) {
-                final ProductsModel product = state[index];
-                return ProductCardWidget(product: product);
-              },
-            ),
+            ],
           );
         },
         onError: (e) {
