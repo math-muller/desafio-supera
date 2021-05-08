@@ -1,4 +1,5 @@
 import 'package:desafio_supera/bindings/home_binding.dart';
+import 'package:desafio_supera/bindings/splash_binding.dart';
 import 'package:desafio_supera/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/splash',
           page: () => SplashPage(),
+          binding: SplashBinding(),
           transition: Transition.fadeIn,
         ),
         GetPage(
