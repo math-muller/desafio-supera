@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           page: () => HomePage(),
           binding: HomeBinding(),
           transition: Transition.fade,
-          transitionDuration: Duration(milliseconds: 300),
+          transitionDuration: Duration(seconds: 1),
         ),
       ],
     );

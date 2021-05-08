@@ -18,7 +18,7 @@ class HomeController extends GetxController with StateMixin {
       final data = await _repository.getProducts();
       change(data, status: RxStatus.success());
     } catch (e) {
-      change([], status: RxStatus.error('Erro ao buscar Usuários'));
+      change([], status: RxStatus.error('Erro ao carregar produtos'));
     }
   }
 }

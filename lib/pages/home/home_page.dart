@@ -1,8 +1,8 @@
-import 'package:desafio_supera/pages/home/components/product_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
 
+import 'package:desafio_supera/pages/home/components/custom_floating_action_button_widget.dart';
+import 'package:desafio_supera/pages/home/components/product_card_widget.dart';
 import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:desafio_supera/models/products_model.dart';
 import 'package:desafio_supera/pages/home/components/app_bar_widget.dart';
@@ -11,19 +11,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.orangeAccent,
-        splashColor: Colors.orange,
-        child: Image(
-          height: 25,
-          width: 25,
-          image: Svg(
-            'assets/images/cart-icon.svg',
-            color: Colors.white,
-          ),
-        ),
-      ),
+      floatingActionButton: CustomFloatingActionButtonWidget(),
       appBar: AppBarWidget(),
       body: controller.obx(
         (state) {
@@ -38,8 +26,34 @@ class HomePage extends GetView<HomeController> {
               itemCount: state.length,
               itemBuilder: (_, index) {
                 final ProductsModel product = state[index];
-                return ProductCard(product: product);
+                return ProductCardWidget(product: product);
               },
+            ),
+          );
+        },
+        onError: (e) {
+          return SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(e!),
+                TextButton(
+                  onPressed: controller.findProducts,
+                  child: Text(
+                    'Tentar Novamente',
+                    style: TextStyle(
+                      color: Colors.orangeAccent,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    overlayColor: MaterialStateProperty.all(
+                      Colors.orangeAccent.withOpacity(.2),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         },
