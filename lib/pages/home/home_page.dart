@@ -7,6 +7,8 @@ import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:desafio_supera/models/products_model.dart';
 import 'package:desafio_supera/pages/home/components/app_bar_widget.dart';
 
+import 'components/reload_screen_widget.dart';
+
 class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
@@ -32,30 +34,7 @@ class HomePage extends GetView<HomeController> {
           );
         },
         onError: (e) {
-          return SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(e!),
-                TextButton(
-                  onPressed: controller.findProducts,
-                  child: Text(
-                    'Tentar Novamente',
-                    style: TextStyle(
-                      color: Colors.orangeAccent,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  style: ButtonStyle(
-                    overlayColor: MaterialStateProperty.all(
-                      Colors.orangeAccent.withOpacity(.2),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
+          return ReloadScreenWidget(reload: controller.findProducts, error: e);
         },
       ),
     );
