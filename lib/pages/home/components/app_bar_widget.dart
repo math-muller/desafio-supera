@@ -11,7 +11,8 @@ class AppBarWidget extends PreferredSize {
           child: Container(
             height: 100,
             width: double.infinity,
-            color: Colors.orangeAccent,
+            color: Colors.white,
+            margin: EdgeInsets.only(bottom: 5),
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -20,16 +21,24 @@ class AppBarWidget extends PreferredSize {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.star_border, color: Colors.white, size: 15),
+                        Icon(
+                          Icons.star_border,
+                          color: Colors.orangeAccent,
+                          size: 15,
+                        ),
                         Text(
                           'Game Store',
                           style: GoogleFonts.notoSans(
-                            color: Colors.white,
+                            color: Colors.orangeAccent,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Icon(Icons.star_border, color: Colors.white, size: 15),
+                        Icon(
+                          Icons.star_border,
+                          color: Colors.orangeAccent,
+                          size: 15,
+                        ),
                       ],
                     ),
                     Padding(
@@ -45,7 +54,7 @@ class AppBarWidget extends PreferredSize {
                                 width: 22,
                                 image: Svg(
                                   'assets/images/cart-icon.svg',
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ),
                               ),
                               GetBuilder<HomeController>(
@@ -63,8 +72,9 @@ class AppBarWidget extends PreferredSize {
                                           child: Text(
                                             '${controller.itemsCart}',
                                             style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 11),
+                                              color: Colors.white,
+                                              fontSize: 11,
+                                            ),
                                           ),
                                         ),
                                       )

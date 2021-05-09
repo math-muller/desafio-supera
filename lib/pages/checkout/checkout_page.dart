@@ -15,9 +15,21 @@ class CheckoutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.white,
         centerTitle: true,
-        title: Text('Carrinho'),
+        title: Text(
+          'Carrinho',
+          style: TextStyle(
+            color: Colors.orangeAccent,
+          ),
+        ),
+        leading: IconButton(
+          onPressed: Get.back,
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
       ),
       bottomSheet: CustomBottomSheetWidget(),
       body: Padding(
