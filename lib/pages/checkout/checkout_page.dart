@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 
 import 'components/custom_bottom_sheet_widget.dart';
 
-class CheckoutPage extends GetView<HomeController> {
+class CheckoutPage extends StatelessWidget {
+  final HomeController controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class CheckoutPage extends GetView<HomeController> {
         centerTitle: true,
         title: Text('Carrinho'),
       ),
-      bottomSheet: CustomBottomSheetWidget(controller: controller),
+      bottomSheet: CustomBottomSheetWidget(),
       body: Padding(
         padding: const EdgeInsets.only(bottom: 150),
         child: ListView.builder(

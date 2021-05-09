@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/checkout',
           page: () => CheckoutPage(),
-          binding: HomeBinding(),
         ),
       ],
     );

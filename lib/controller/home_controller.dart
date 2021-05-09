@@ -57,15 +57,13 @@ class HomeController extends GetxController with StateMixin {
 
   void addProductToCart(ProductsModel product) {
     cartItens.add(product);
-    print(cartItens);
   }
 
   void removeProductToCart(ProductsModel product) {
     cartItens.remove(product);
-    print(cartItens);
   }
 
-  Future<void> filteredByHigherPrice() async {}
+  //Future<void> filteredByHigherPrice() async {}
 
   //Future<void> filteredByLowerPrice() {}
 

@@ -4,9 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomBottomSheetWidget extends StatelessWidget {
-  final HomeController controller;
-
-  CustomBottomSheetWidget({required this.controller});
+  final HomeController controller = Get.find();
 
   final textStyle = GoogleFonts.notoSans(
     fontSize: 16,
