@@ -4,15 +4,17 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController with StateMixin {
   final HomeRepository _repository;
-  List<ProductsModel> cartItens = [];
+  List<ProductsModel> cartItems = [];
+  String _filter = 'Filtrar';
   double _total = 0;
   double _subtotal = 0;
   int _frete = 0;
-  String _filter = 'Filtrar';
+  int _itemsCart = 0;
 
   double get total => _total;
   double get subtotal => _subtotal;
   int get frete => _frete;
+  int get itemsCart => _itemsCart;
   String get filter => _filter;
 
   HomeController(this._repository);
@@ -30,11 +32,11 @@ class HomeController extends GetxController with StateMixin {
 
   void calcSubtotal() {
     _subtotal =
-        cartItens.fold(0, (prevVal, product) => prevVal + product.price);
+        cartItems.fold(0, (prevVal, product) => prevVal + product.price);
   }
 
   void calcTotal() {
-    if (cartItens.isEmpty) {
+    if (cartItems.isEmpty) {
       _total = 0;
     } else {
       _total = _subtotal + _frete;
@@ -42,10 +44,11 @@ class HomeController extends GetxController with StateMixin {
   }
 
   void calcFrete() {
-    _frete = _subtotal > 250 ? 0 : cartItens.length * 10;
+    _frete = _subtotal > 250 ? 0 : cartItems.length * 10;
   }
 
   void calc() {
+    _itemsCart = cartItems.length;
     calcSubtotal();
     calcTotal();
     calcFrete();
@@ -72,11 +75,11 @@ class HomeController extends GetxController with StateMixin {
   }
 
   void addProductToCart(ProductsModel product) {
-    cartItens.add(product);
+    cartItems.add(product);
   }
 
   void removeProductToCart(ProductsModel product) {
-    cartItens.remove(product);
+    cartItems.remove(product);
   }
 
   //Future<void> filteredByHigherPrice() async {}

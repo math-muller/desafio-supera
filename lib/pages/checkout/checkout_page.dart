@@ -23,9 +23,9 @@ class CheckoutPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(bottom: 150),
         child: ListView.builder(
-          itemCount: controller.cartItens.length,
+          itemCount: controller.cartItems.length,
           itemBuilder: (_, index) {
-            final ProductsModel product = controller.cartItens[index];
+            final ProductsModel product = controller.cartItems[index];
             return Dismissible(
               key: UniqueKey(),
               onDismissed: (diretion) {

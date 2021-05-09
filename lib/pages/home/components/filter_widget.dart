@@ -10,7 +10,7 @@ class FilterWidget extends StatelessWidget {
   final textStyle = TextStyle(color: Colors.blueAccent);
   final HomeController controller = Get.find();
 
-  final dropdownItens = <String>[
+  final dropdownItems = <String>[
     'Filtrar',
     'Maior Valor',
     'Menor Valor',
@@ -50,7 +50,7 @@ class FilterWidget extends StatelessWidget {
             onChanged: (String? newValue) {
               controller.loadFilter(newValue!);
             },
-            items: dropdownItens.map<DropdownMenuItem<String>>((String value) {
+            items: dropdownItems.map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),

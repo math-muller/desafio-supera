@@ -2,7 +2,6 @@ import 'package:desafio_supera/pages/home/components/filter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:desafio_supera/pages/home/components/custom_floating_action_button_widget.dart';
 import 'package:desafio_supera/pages/home/components/product_card_widget.dart';
 import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:desafio_supera/models/products_model.dart';
@@ -14,11 +13,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: CustomFloatingActionButtonWidget(
-        onTap: controller.goToCheckout,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-      appBar: AppBarWidget(),
+      appBar: AppBarWidget(controller: controller),
       body: controller.obx(
         (state) {
           return Stack(
