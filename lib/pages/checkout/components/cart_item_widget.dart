@@ -1,7 +1,7 @@
-import 'package:desafio_supera/models/products_model.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../models/models.dart';
 
 class CartItemWidget extends StatelessWidget {
   final ProductsModel product;

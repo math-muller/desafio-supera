@@ -1,13 +1,10 @@
-import 'package:desafio_supera/pages/home/components/filter_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:desafio_supera/pages/home/components/product_card_widget.dart';
-import 'package:desafio_supera/controller/home_controller.dart';
-import 'package:desafio_supera/models/products_model.dart';
-import 'package:desafio_supera/pages/home/components/app_bar_widget.dart';
+import '../../controller/controller.dart';
+import '../../models/models.dart';
 
-import 'components/reload_screen_widget.dart';
+import 'components/components.dart';
 
 class HomePage extends GetView<HomeController> {
   @override

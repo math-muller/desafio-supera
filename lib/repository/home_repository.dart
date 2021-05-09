@@ -1,7 +1,7 @@
 import 'dart:convert';
-
-import 'package:desafio_supera/models/products_model.dart';
 import 'package:flutter/services.dart';
+
+import '../models/models.dart';
 
 class HomeRepository {
   static String path = "assets/database/products.json";

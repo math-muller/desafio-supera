@@ -1,12 +1,9 @@
-import 'package:desafio_supera/bindings/home_binding.dart';
-import 'package:desafio_supera/bindings/splash_binding.dart';
-import 'package:desafio_supera/pages/checkout/checkout_page.dart';
-import 'package:desafio_supera/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import 'package:desafio_supera/pages/splash/splash_page.dart';
+import 'bindings/bindings.dart';
+import 'pages/pages.dart';
 
 void main() {
   runApp(MyApp());

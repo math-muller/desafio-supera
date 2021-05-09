@@ -1,7 +1,8 @@
-import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/controller.dart';
 
 class CustomBottomSheetWidget extends StatelessWidget {
   final HomeController controller = Get.find();
@@ -18,7 +19,7 @@ class CustomBottomSheetWidget extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border(
-          top: BorderSide(color: Colors.grey.withOpacity(.8), width: 1),
+          top: BorderSide(color: Colors.grey.withOpacity(.6), width: 1),
         ),
       ),
       child: GetBuilder<HomeController>(

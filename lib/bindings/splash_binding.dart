@@ -1,5 +1,6 @@
-import 'package:desafio_supera/controller/splash_controller.dart';
 import 'package:get/get.dart';
+
+import '../controller/controller.dart';
 
 class SplashBinding implements Bindings {
   @override

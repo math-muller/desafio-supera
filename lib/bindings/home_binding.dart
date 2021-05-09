@@ -1,6 +1,7 @@
-import 'package:desafio_supera/controller/home_controller.dart';
-import 'package:desafio_supera/repository/home_repository.dart';
 import 'package:get/get.dart';
+
+import '../controller/controller.dart';
+import '../repository/repository.dart';
 
 class HomeBinding implements Bindings {
   @override

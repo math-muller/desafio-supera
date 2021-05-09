@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:desafio_supera/controller/splash_controller.dart';
+import '../../controller/controller.dart';
 
 class SplashPage extends GetView<SplashController> {
   @override

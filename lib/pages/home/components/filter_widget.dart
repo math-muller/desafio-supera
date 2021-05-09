@@ -1,6 +1,7 @@
-import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../controller/controller.dart';
 
 class FilterWidget extends StatelessWidget {
   final dynamic state;

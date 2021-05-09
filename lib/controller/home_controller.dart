@@ -1,6 +1,7 @@
-import 'package:desafio_supera/models/products_model.dart';
-import 'package:desafio_supera/repository/home_repository.dart';
 import 'package:get/get.dart';
+
+import '../models/models.dart';
+import '../repository/repository.dart';
 
 class HomeController extends GetxController with StateMixin {
   final HomeRepository _repository;

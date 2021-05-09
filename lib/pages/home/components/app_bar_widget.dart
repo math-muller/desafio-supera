@@ -1,8 +1,9 @@
-import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import '../../../controller/controller.dart';
 
 class AppBarWidget extends PreferredSize {
   AppBarWidget({required HomeController controller})
