@@ -83,14 +83,6 @@ class HomeController extends GetxController with StateMixin {
     cartItems.remove(product);
   }
 
-  //Future<void> filteredByHigherPrice() async {}
-
-  //Future<void> filteredByLowerPrice() {}
-
-  //Future<void> filteredByScore() {}
-
-  // Future<void> filteredByAlphabeticalOrder() {}
-
   void goToCheckout() {
     Get.toNamed('/checkout');
   }
