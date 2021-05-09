@@ -14,7 +14,10 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: CustomFloatingActionButtonWidget(),
+      floatingActionButton: CustomFloatingActionButtonWidget(
+        onTap: controller.goToCheckout,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       appBar: AppBarWidget(),
       body: controller.obx(
         (state) {
@@ -32,7 +35,10 @@ class HomePage extends GetView<HomeController> {
                   itemCount: state.length,
                   itemBuilder: (_, index) {
                     final ProductsModel product = state[index];
-                    return ProductCardWidget(product: product);
+                    return ProductCardWidget(
+                      product: product,
+                      controller: controller,
+                    );
                   },
                 ),
               ),

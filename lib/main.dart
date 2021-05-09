@@ -1,5 +1,6 @@
 import 'package:desafio_supera/bindings/home_binding.dart';
 import 'package:desafio_supera/bindings/splash_binding.dart';
+import 'package:desafio_supera/pages/checkout/checkout_page.dart';
 import 'package:desafio_supera/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,11 @@ class MyApp extends StatelessWidget {
           binding: HomeBinding(),
           transition: Transition.fade,
           transitionDuration: Duration(seconds: 1),
+        ),
+        GetPage(
+          name: '/checkout',
+          page: () => CheckoutPage(),
+          binding: HomeBinding(),
         ),
       ],
     );
