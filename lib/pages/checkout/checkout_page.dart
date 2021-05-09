@@ -30,7 +30,7 @@ class CheckoutPage extends StatelessWidget {
               key: UniqueKey(),
               onDismissed: (diretion) {
                 controller.removeProductToCart(product);
-                controller.globalCalc();
+                controller.calc();
               },
               background: DismissibleBar(),
               direction: DismissDirection.endToStart,

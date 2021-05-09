@@ -1,4 +1,6 @@
+import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FilterWidget extends StatelessWidget {
   final dynamic state;
@@ -6,6 +8,15 @@ class FilterWidget extends StatelessWidget {
   FilterWidget({required this.state});
 
   final textStyle = TextStyle(color: Colors.blueAccent);
+  final HomeController controller = Get.find();
+
+  final dropdownItens = <String>[
+    'Filtrar',
+    'Maior Valor',
+    'Menor Valor',
+    'Popularidade',
+    'Ord. Alfabética'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,60 +43,19 @@ class FilterWidget extends StatelessWidget {
               fontSize: 13,
             ),
           ),
-          TextButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return SimpleDialog(
-                    backgroundColor: Colors.white,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Text(
-                              'Filtrar por:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                          Divider(color: Colors.grey, height: 20),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text('Maior Preço', style: textStyle),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text('Menos Preço', style: textStyle),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text('Popularidade', style: textStyle),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text('Ordem alfabética', style: textStyle),
-                          ),
-                        ],
-                      ),
-                    ],
-                  );
-                },
-              );
+          DropdownButton<String>(
+            value: controller.filter,
+            elevation: 10,
+            style: const TextStyle(color: Colors.blueAccent),
+            onChanged: (String? newValue) {
+              controller.loadFilter(newValue!);
             },
-            child: Text(
-              'Filtrar',
-              style: textStyle,
-            ),
-            style: ButtonStyle(
-              overlayColor: MaterialStateProperty.all(
-                Colors.grey.shade100,
-              ),
-            ),
+            items: dropdownItens.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
           ),
         ],
       ),

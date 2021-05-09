@@ -9,7 +9,7 @@ também.
 
 3. ✅ O usuário poderá adicionar e remover produtos do carrinho.
 
-4. O usuário poderá ordenar os produtos por preço, popularidade (score) e ordem alfabética.
+4. ✅ O usuário poderá ordenar os produtos por preço, popularidade (score) e ordem alfabética.
 
 5. ✅ A cada produto adicionado, deve-se somar R$ 10,00 ao frete.
 

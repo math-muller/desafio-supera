@@ -8,16 +8,23 @@ class HomeController extends GetxController with StateMixin {
   double _total = 0;
   double _subtotal = 0;
   int _frete = 0;
+  String _filter = 'Filtrar';
 
   double get total => _total;
   double get subtotal => _subtotal;
   int get frete => _frete;
+  String get filter => _filter;
 
   HomeController(this._repository);
 
   @override
   void onInit() {
     super.onInit();
+    findProducts();
+  }
+
+  void loadFilter(String value) {
+    _filter = value;
     findProducts();
   }
 
@@ -38,7 +45,7 @@ class HomeController extends GetxController with StateMixin {
     _frete = _subtotal > 250 ? 0 : cartItens.length * 10;
   }
 
-  void globalCalc() {
+  void calc() {
     calcSubtotal();
     calcTotal();
     calcFrete();
@@ -49,6 +56,15 @@ class HomeController extends GetxController with StateMixin {
     change([], status: RxStatus.loading());
     try {
       final data = await _repository.getProducts();
+      if (_filter.contains('Ord. Alfabética')) {
+        data.sort((a, b) => a.name.compareTo(b.name));
+      } else if (_filter.contains('Menor Valor')) {
+        data.sort((a, b) => a.price.compareTo(b.price));
+      } else if (_filter.contains('Maior Valor')) {
+        data.sort((a, b) => b.price.compareTo(a.price));
+      } else if (_filter.contains('Popularidade')) {
+        data.sort((a, b) => b.score.compareTo(a.score));
+      }
       change(data, status: RxStatus.success());
     } catch (e) {
       change([], status: RxStatus.error('Erro ao carregar produtos'));

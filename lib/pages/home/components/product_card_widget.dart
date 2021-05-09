@@ -49,17 +49,15 @@ class ProductCardWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 100, top: 20),
-                    child: Row(
-                      children: [
-                        Text('Adicionar:'),
-                        IconButton(
-                          icon: Icon(Icons.add_shopping_cart),
-                          onPressed: () {
-                            controller.addProductToCart(product);
-                            controller.globalCalc();
-                          },
-                        ),
-                      ],
+                    child: TextButton(
+                      onPressed: () {
+                        controller.addProductToCart(product);
+                        controller.calc();
+                      },
+                      child: Text(
+                        'Adicionar ao carrinho',
+                        style: TextStyle(color: Colors.blueAccent),
+                      ),
                     ),
                   ),
                 ],
