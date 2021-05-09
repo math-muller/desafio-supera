@@ -5,6 +5,13 @@ import 'package:get/get.dart';
 class HomeController extends GetxController with StateMixin {
   final HomeRepository _repository;
   List<ProductsModel> cartItens = [];
+  double _total = 0;
+  double _subtotal = 0;
+  int _frete = 0;
+
+  double get total => _total;
+  double get subtotal => _subtotal;
+  int get frete => _frete;
 
   HomeController(this._repository);
 
@@ -12,6 +19,30 @@ class HomeController extends GetxController with StateMixin {
   void onInit() {
     super.onInit();
     findProducts();
+  }
+
+  void calcSubtotal() {
+    _subtotal =
+        cartItens.fold(0, (prevVal, product) => prevVal + product.price);
+  }
+
+  void calcTotal() {
+    if (cartItens.isEmpty) {
+      _total = 0;
+    } else {
+      _total = _subtotal + _frete;
+    }
+  }
+
+  void calcFrete() {
+    _frete = _subtotal > 250 ? 0 : cartItens.length * 10;
+  }
+
+  void globalCalc() {
+    calcSubtotal();
+    calcTotal();
+    calcFrete();
+    update(['cart']);
   }
 
   Future<void> findProducts() async {

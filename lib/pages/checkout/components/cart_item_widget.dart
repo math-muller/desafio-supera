@@ -1,20 +1,17 @@
-import 'package:desafio_supera/controller/home_controller.dart';
 import 'package:desafio_supera/models/products_model.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
-class ProductCardWidget extends StatelessWidget {
+class CartItemWidget extends StatelessWidget {
   final ProductsModel product;
-  final HomeController controller;
 
-  ProductCardWidget({required this.product, required this.controller});
+  CartItemWidget({required this.product});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(4.0)),
-      ),
+      height: 110,
       child: Card(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,21 +42,6 @@ class ProductCardWidget extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 100, top: 20),
-                    child: Row(
-                      children: [
-                        Text('Adicionar:'),
-                        IconButton(
-                          icon: Icon(Icons.add_shopping_cart),
-                          onPressed: () {
-                            controller.addProductToCart(product);
-                            controller.globalCalc();
-                          },
-                        ),
-                      ],
                     ),
                   ),
                 ],
