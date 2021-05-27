@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../../controller/controller.dart';
 
-class CustomBottomSheetWidget extends StatelessWidget {
+class CustomBottomSheetWidget extends StatefulWidget {
+  @override
+  _CustomBottomSheetWidgetState createState() =>
+      _CustomBottomSheetWidgetState();
+}
+
+class _CustomBottomSheetWidgetState extends State<CustomBottomSheetWidget> {
   final HomeController controller = Get.find();
+
+  var formatNumber = NumberFormat("###.00#", "pt_BR");
 
   final textStyle = GoogleFonts.notoSans(
     fontSize: 16,
@@ -39,7 +48,7 @@ class CustomBottomSheetWidget extends StatelessWidget {
                         'Subtotal: ',
                         style: textStyle,
                       ),
-                      Text('R\$ ${controller.subtotal.toStringAsFixed(2)}'),
+                      Text('R\$ ${formatNumber.format(controller.subtotal)}'),
                     ],
                   ),
                 ),
@@ -61,7 +70,7 @@ class CustomBottomSheetWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'R\$ ${controller.total.toStringAsFixed(2)}',
+                            'R\$ ${formatNumber.format(controller.total)}',
                             style: TextStyle(fontWeight: FontWeight.w500),
                           ),
                           controller.subtotal > 250

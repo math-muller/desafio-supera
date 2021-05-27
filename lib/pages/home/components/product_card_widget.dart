@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../../../controller/controller.dart';
 import '../../../models/models.dart';
@@ -12,6 +13,8 @@ class ProductCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var formatNumber = NumberFormat("###.00#", "pt_BR");
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(4.0)),
@@ -41,7 +44,7 @@ class ProductCardWidget extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    'R\$ ${product.price}',
+                    'R\$ ${formatNumber.format(product.price)}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
