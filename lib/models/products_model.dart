@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class ProductsModel {
   final int id;
   final String name;
@@ -34,9 +32,4 @@ class ProductsModel {
       image: map['image'],
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory ProductsModel.fromJson(String src) =>
-      ProductsModel.fromMap(json.decode(src));
 }
