@@ -58,7 +58,7 @@ class _CustomBottomSheetWidgetState extends State<CustomBottomSheetWidget> {
                   endIndent: 10,
                   indent: 10,
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 6),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: Row(
@@ -89,6 +89,20 @@ class _CustomBottomSheetWidgetState extends State<CustomBottomSheetWidget> {
                         ],
                       )
                     ],
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: double.infinity,
+                  height: 40,
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  color: Colors.orangeAccent,
+                  child: TextButton(
+                    child: Text(
+                      'Finalizar Compra',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () {},
                   ),
                 ),
               ],
