@@ -18,7 +18,6 @@ class ProductCardWidget extends StatelessWidget {
       ),
       child: Card(
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
@@ -49,7 +48,8 @@ class ProductCardWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 100, top: 20),
+                    padding:
+                        const EdgeInsets.only(left: 100, top: 10, bottom: 5),
                     child: TextButton(
                       onPressed: () {
                         controller.addProductToCart(product);
